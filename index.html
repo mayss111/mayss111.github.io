@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio - Mayss Jaballi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio de Mayss Jaballi, étudiante en ingénierie informatique spécialisée en développement web " />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header class="site-header">
+  <div class="container header-content">
+    <div>
+      <h1>Mayss Jaballi</h1>
+      <p class="subtitle">
+        Étudiante en ingénierie informatique . Développement web . Full‑stack
+      </p>
+    </div>
+    <nav class="nav">
+  <a href="#about">À propos</a>
+  <a href="#skills">Compétences</a>
+  <a href="#projects">Projets</a>
+  <a href="#contact">Contact</a>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Changer de thème">
+    ☀️
+  </button>
+</nav>
+  </div>
+</header>
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // thème par défaut = dark
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    root.setAttribute('data-theme', 'light');
+    toggleBtn.textContent = '🌙'; // montrer qu'on peut revenir au dark
+  } else {
+    root.setAttribute('data-theme', 'dark');
+    toggleBtn.textContent = '☀️'; // cliquer => devient light
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    toggleBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+</script>
+
+
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>À propos</h2>
+      <p>
+        Je suis étudiante en ingénierie informatique, passionnée par le développement web et les
+        architectures full‑stack. J’aime concevoir des applications propres, testables et bien structurées
+      </p>
+      <p>
+        Je cherche à mettre en pratique mes compétences à travers des projets concrets et des collaborations
+        professionnelles (stage, alternance ou opportunités freelance).
+      </p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Compétences</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Frontend</h3>
+          <ul>
+            <li>Angular, TypeScript</li>
+            <li>HTML5, CSS3</li>
+            <li>Routing, services, guards, interceptors</li>
+
+            <li>Composants réutilisables, pipes personnalisés</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <ul>
+            <li>NestJS, Node.js</li>
+            <li>APIs REST, validation, middleware</li>
+            <li>JAVA/SPRING</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Base de données & DevOps</h3>
+          <ul>
+            <li>MongoDB, MySQL</li>
+            <li>Git, GitHub, GitHub Pages</li>
+            <li>Notions de Docker/Kubernetes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projets</h2>
+
+      <article class="project-card">
+        <h3>LIBRARY MANAGER</h3>
+        <p>
+          Application de gestion de bibliothèque permettant d’ajouter, rechercher et suivre les livres ainsi
+          que les emprunts des utilisateurs. L’objectif est de centraliser les opérations du quotidien pour
+          les bibliothécaires et les lecteurs.
+        </p>
+        <p>
+          <strong>Points clés :</strong>
+        </p>
+        <ul>
+          <li>Gestion des livres (création, mise à jour, suppression, liste, recherche).</li>
+          <li>Gestion des emprunts et retours avec suivi de l’état.</li>
+          <li>Interface utilisateur claire et responsive.</li>
+        </ul>
+        <p>
+          <strong>Stack :</strong> Angular (frontend) .
+        </p>
+        <a class="btn" href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer">
+          Voir le code sur GitHub
+        </a>
+      </article>
+
+      <article class="project-card">
+        <h3>NEDU</h3>
+        <p>
+          Projet academique  mettant en avant une frontened avec javafx et un
+          backend API, gestion des utilisateurs et espace administrateur.
+        </p>
+        <p>
+          <strong>Points clés :</strong>
+        </p>
+        <ul>
+          <li>Authentification  et gestion de rôles (admin / utilisateur).</li>
+          <li>Tableau de bord avec affichage de données métier et statistiques.</li>
+          <li>Architecture modulaire, services, tests de base et bonnes pratiques Git.</li>
+        </ul>
+        <p>
+          <strong>Stack :</strong> javafx, java , base de données MySQL.
+        </p>
+        <a class="btn" href="https://github.com/mayss111/projet-finale" target="_blank" rel="noreferrer">
+          Voir le code sur GitHub
+        </a>
+      </article>
+
+      <article class="project-card">
+        <h3>Prolink</h3>
+        <p>
+          Plateforme de mise en relation permettant aux utilisateurs de créer un profil et d’interagir
+          avec d’autres (annonces, ressources ou contacts), via une interface moderne et responsive.
+        </p>
+        <p>
+          <strong>Points clés :</strong>
+        </p>
+        <ul>
+          <li>Gestion des profils utilisateurs et authentification.</li>
+          <li>Liste / filtrage / recherche de contenus ou de profils.</li>
+          <li>Interface responsive adaptée aux mobiles et desktops.</li>
+
+        </ul>
+        <p>
+          <strong>Stack :</strong> ux ui design, tailwind css, figma.
+        </p>
+        <a class="btn" href="https://github.com/mayss111/UX_UI" target="_blank" rel="noreferrer">
+          Voir le code sur GitHub
+        </a>
+      </article>
+      <article class="project-card">
+        <h3>chat</h3>
+        <p>
+      Le projet est une application NestJS de chat collaboratif temps réel, construite comme un labo complet pour pratiquer 
+      l’architecture Nest (modules, services, contrôleurs), la persistance avec MongoDB, la sérialisation des données et l’authentification JWT.
+        </p>
+        <p>
+          <strong>Points clés :</strong>
+        </p>
+        <ul>
+          <li>Une API REST pour créer et consulter utilisateurs, rooms, messages et logs.
+
+</li>
+          <li>LisUn système de chat temps réel avec WebSockets (Socket.io) et gestion de rooms.
+
+</li>
+          <li>Une couche d’authentification JWT pour sécuriser l’accès aux fonctionnalités.</li>
+
+        </ul>
+        <p>
+          <strong>Stack :</strong> MongoDB, NestJS, Socket.io.
+        </p>
+        <a class="btn" href="https://github.com/mayss111/chat-tasks-api" target="_blank" rel="noreferrer">
+          Voir le code sur GitHub
+        </a>
+      </article>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Pour toute opportunité ou question, n’hésite pas à me contacter :</p>
+      <ul>
+        <li>Email : <a href="mailto:mayssjaballi@gmail.com" target="_blank" rel="noreferrer" class="emaiL">mayssjaballi@gmail.com</a></li>
+        <li>GitHub : <a href="https://github.com/mayss111" target="_blank" rel="noreferrer">mayss111</a></li>
+        <li>LinkedIn : <a href="https://www.linkedin.com/in/mayss-jaballi-08145028a/" target="_blank" rel="noreferrer">mayss jaballi</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 · Mayss Jaballi</p>
+    </div>
+  </footer>
+</body>
+</html>
