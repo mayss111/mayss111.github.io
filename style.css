@@ -4,7 +4,7 @@
 
 /* DARK par défaut */
 :root {
-  --bg: #020617;
+  --bg: #002c6a;
   --bg-alt: #0b1020;
   --accent: #38bdf8;
   --accent-2: #a855f7;
@@ -53,7 +53,7 @@ body {
 /* Option : joli dégradé uniquement en dark */
 :root[data-theme="dark"] body {
   background:
-    radial-gradient(circle at top left, #1f2937 0, #020617 46%, #000 100%);
+    radial-gradient(circle at top left, #1f2937 0, #002c6a 46%, #000 100%);
 }
 
 /* =========================
