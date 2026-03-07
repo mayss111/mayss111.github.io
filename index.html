@@ -1,219 +1,394 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>Portfolio - Mayss Jaballi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio de Mayss Jaballi, étudiante en ingénierie informatique spécialisée en développement web " />
+  <meta name="description" content="Portfolio de Mayss Jaballi, étudiante en ingénierie informatique spécialisée en développement web full-stack." />
+  
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-   <div class="hero-banner"></div>
- 
- <header class="site-header">
-  <div class="container header-content">
-    <div>
-      <h1>Mayss Jaballi</h1>
-      <p class="subtitle">
-        Étudiante en ingénierie informatique . Développement web . Full‑stack
-      </p>
+  
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Animated Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand">
+        <h1>Mayss<span class="dot">.</span></h1>
+        <p class="subtitle">Full-Stack Developer</p>
+      </div>
+      <nav class="nav">
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#skills" class="nav-link">Expertise</a>
+        <a href="#projects" class="nav-link">Projets</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Changer de thème">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </nav>
+      <!-- Mobile menu button can be added here -->
     </div>
-    <nav class="nav">
-  <a href="#about">À propos</a>
-  <a href="#skills">Compétences</a>
-  <a href="#projects">Projets</a>
-  <a href="#contact">Contact</a>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Changer de thème">
-    ☀️
-  </button>
-</nav>
-  </div>
-</header>
-<script>
-  const toggleBtn = document.getElementById('theme-toggle');
-  const root = document.documentElement;
+  </header>
 
-  // thème par défaut = dark
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    root.setAttribute('data-theme', 'light');
-    toggleBtn.textContent = '🌙'; // montrer qu'on peut revenir au dark
-  } else {
-    root.setAttribute('data-theme', 'dark');
-    toggleBtn.textContent = '☀️'; // cliquer => devient light
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    toggleBtn.textContent = next === 'dark' ? '☀️' : '🌙';
-  });
-</script>
-
-
-
-  <main class="container">
-    <section id="about" class="section">
-      <h2>À propos</h2>
-      <p>
-        Je suis étudiante en ingénierie informatique, passionnée par le développement web et les
-        architectures full‑stack. J’aime concevoir des applications propres, testables et bien structurées
-      </p>
-      <p>
-        Je cherche à mettre en pratique mes compétences à travers des projets concrets et des collaborations
-        professionnelles (stage, alternance ou opportunités freelance).
-      </p>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Compétences</h2>
-      <div class="skills-grid">
-        <div class="card">
-          <h3>Frontend</h3>
-          <ul>
-            <li>Angular, TypeScript</li>
-            <li>HTML5, CSS3</li>
-            <li>Routing, services, guards, interceptors</li>
-
-            <li>Composants réutilisables, pipes personnalisés</li>
-          </ul>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content fade-in-up">
+          <div class="badge-intro">👋 Bonjour, je suis Mayss</div>
+          <h2 class="hero-title">
+            Créer des expériences 
+            <span class="gradient-text">numériques d'exception</span>
+          </h2>
+          <p class="hero-desc">
+            Étudiante ingénieure passionnée par le développement d'architectures robustes et d'interfaces utilisateur modernes. Je donne vie à vos idées grâce au code.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              Explorer mon travail 
+              <span class="arrow">→</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">Contactez-moi</a>
+          </div>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">4+</span>
+              <span class="stat-label">Projets Majeurs</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">Full</span>
+              <span class="stat-label">Stack</span>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Backend</h3>
-          <ul>
-            <li>NestJS, Node.js</li>
-            <li>APIs REST, validation, middleware</li>
-            <li>JAVA/SPRING</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Base de données & DevOps</h3>
-          <ul>
-            <li>MongoDB, MySQL</li>
-            <li>Git, GitHub, GitHub Pages</li>
-            <li>Notions de Docker/Kubernetes</li>
-          </ul>
+        
+        <div class="hero-visual fade-in-scale">
+          <div class="creative-shape">
+            <div class="shape-inner">
+              <!-- Placeholder for profile picture, using a stylish gradient -->
+              <div class="profile-placeholder"></div>
+            </div>
+            <div class="floating-badge badge-1">Angular</div>
+            <div class="floating-badge badge-2">NestJS</div>
+            <div class="floating-badge badge-3">UI/UX</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section">
-      <h2>Projets</h2>
+    <div class="container">
+      <section id="about" class="section fade-in-up section-offset">
+        <div class="glass-panel about-panel">
+          <div class="about-grid">
+            <div class="about-text">
+              <div class="section-label">01 // INTRODUCTION</div>
+              <h2>À propos de moi</h2>
+              <p>
+                Je suis étudiante en ingénierie informatique, passionnée par le développement web et les architectures full-stack. J’aime concevoir des applications propres, testables et bien structurées.
+              </p>
+              <p>
+                Toujours à l'affût des dernières technologies, je cherche à mettre en pratique mes compétences à travers des projets concrets et des collaborations professionnelles (stage, alternance ou opportunités freelance).
+              </p>
+            </div>
+            <div class="about-visual">
+              <div class="code-window">
+                <div class="window-header">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="window-body">
+                  <pre><code>const developer = {
+  name: "Mayss Jaballi",
+  role: "Full-Stack Software Engineer",
+  focus: ["Clean Code", "Scalability", "UX"],
+  passion: true,
+  sayHi: function() {
+    return "Let's build something amazing!";
+  }
+};</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <article class="project-card">
-        <h3>LIBRARY MANAGER</h3>
-        <p>
-          Application de gestion de bibliothèque permettant d’ajouter, rechercher et suivre les livres ainsi
-          que les emprunts des utilisateurs. L’objectif est de centraliser les opérations du quotidien pour
-          les bibliothécaires et les lecteurs.
-        </p>
-        <p>
-          <strong>Points clés :</strong>
-        </p>
-        <ul>
-          <li>Gestion des livres (création, mise à jour, suppression, liste, recherche).</li>
-          <li>Gestion des emprunts et retours avec suivi de l’état.</li>
-          <li>Interface utilisateur claire et responsive.</li>
-        </ul>
-        <p>
-          <strong>Stack :</strong> Angular (frontend) .
-        </p>
-        <a class="btn" href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer">
-          Voir le code sur GitHub
-        </a>
-      </article>
+      <section id="skills" class="section fade-in-up">
+        <div class="section-header center">
+          <div class="section-label">02 // COMPÉTENCES</div>
+          <h2>Mon Expertise Technique</h2>
+        </div>
+        
+        <div class="skills-grid">
+          <div class="glass-card skill-card magic-hover">
+            <div class="glow-wrap">
+              <div class="card-icon gradient-icon">⚡</div>
+              <h3>Frontend Excellence</h3>
+              <p class="skill-desc">Création d'interfaces dynamiques, composants réutilisables, routing complexe et state management optimisé.</p>
+              <div class="tags-container">
+                <span class="tag">Angular</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">RxJS</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+          </div>
 
-      <article class="project-card">
-        <h3>NEDU</h3>
-        <p>
-          Projet academique  mettant en avant une frontened avec javafx et un
-          backend API, gestion des utilisateurs et espace administrateur.
-        </p>
-        <p>
-          <strong>Points clés :</strong>
-        </p>
-        <ul>
-          <li>Authentification  et gestion de rôles (admin / utilisateur).</li>
-          <li>Tableau de bord avec affichage de données métier et statistiques.</li>
-          <li>Architecture modulaire, services, tests de base et bonnes pratiques Git.</li>
-        </ul>
-        <p>
-          <strong>Stack :</strong> javafx, java , base de données MySQL.
-        </p>
-        <a class="btn" href="https://github.com/mayss111/projet-finale" target="_blank" rel="noreferrer">
-          Voir le code sur GitHub
-        </a>
-      </article>
+          <div class="glass-card skill-card magic-hover">
+            <div class="glow-wrap">
+              <div class="card-icon gradient-icon">⚙️</div>
+              <h3>Robust Backend</h3>
+              <p class="skill-desc">Développement d'APIs performantes, architecture modulaire, middlewares, sécurité (JWT) et WebSockets.</p>
+              <div class="tags-container">
+                <span class="tag">NestJS</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">REST API</span>
+              </div>
+            </div>
+          </div>
 
-      <article class="project-card">
-        <h3>Prolink</h3>
-        <p>
-          Plateforme de mise en relation permettant aux utilisateurs de créer un profil et d’interagir
-          avec d’autres (annonces, ressources ou contacts), via une interface moderne et responsive.
-        </p>
-        <p>
-          <strong>Points clés :</strong>
-        </p>
-        <ul>
-          <li>Gestion des profils utilisateurs et authentification.</li>
-          <li>Liste / filtrage / recherche de contenus ou de profils.</li>
-          <li>Interface responsive adaptée aux mobiles et desktops.</li>
+          <div class="glass-card skill-card magic-hover">
+            <div class="glow-wrap">
+              <div class="card-icon gradient-icon">💾</div>
+              <h3>Data & DevOps</h3>
+              <p class="skill-desc">Modélisation de bases de données, conteneurisation, automatisation des déploiements et gestion de versions.</p>
+              <div class="tags-container">
+                <span class="tag">MongoDB</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Git / GitHub</span>
+                <span class="tag">Docker</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        </ul>
-        <p>
-          <strong>Stack :</strong> ux ui design, tailwind css, figma.
-        </p>
-        <a class="btn" href="https://github.com/mayss111/UX_UI" target="_blank" rel="noreferrer">
-          Voir le code sur GitHub
-        </a>
-      </article>
-      <article class="project-card">
-        <h3>chat</h3>
-        <p>
-      Le projet est une application NestJS de chat collaboratif temps réel, construite comme un labo complet pour pratiquer 
-      l’architecture Nest (modules, services, contrôleurs), la persistance avec MongoDB, la sérialisation des données et l’authentification JWT.
-        </p>
-        <p>
-          <strong>Points clés :</strong>
-        </p>
-        <ul>
-          <li>Une API REST pour créer et consulter utilisateurs, rooms, messages et logs.
+      <section id="projects" class="section fade-in-up">
+        <div class="section-header">
+          <div class="section-label">03 // RÉALISATIONS</div>
+          <h2>Projets Récents</h2>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card magic-hover">
+            <div class="project-image" style="background: linear-gradient(45deg, #0284c7, #38bdf8);">
+              <!-- Placeholder for project image -->
+              <span class="mockup-icon">📚</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2026</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <h3>Library Manager</h3>
+              <p class="project-desc">Plateforme CRM de gestion de bibliothèque centralisant les opérations quotidiennes avec des tableaux de bord interactifs.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">Angular</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">RxJS</span>
+              </div>
+            </div>
+          </article>
 
-</li>
-          <li>LisUn système de chat temps réel avec WebSockets (Socket.io) et gestion de rooms.
+          <!-- Project 2 -->
+          <article class="project-card magic-hover">
+            <div class="project-image" style="background: linear-gradient(45deg, #7c3aed, #c084fc);">
+              <span class="mockup-icon">💬</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/chat-tasks-api" target="_blank" rel="noreferrer" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <h3>NestJS Chat Hub</h3>
+              <p class="project-desc">Serveur de chat temps réel collaboratif. Sécurisé par JWT, avec gestion avancée des rooms via WebSockets et persistance MongoDB.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">NestJS</span>
+                <span class="tag">Socket.io</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </article>
 
-</li>
-          <li>Une couche d’authentification JWT pour sécuriser l’accès aux fonctionnalités.</li>
+          <!-- Project 3 -->
+          <article class="project-card magic-hover">
+            <div class="project-image" style="background: linear-gradient(45deg, #059669, #34d399);">
+              <span class="mockup-icon">📊</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/projet-finale" target="_blank" rel="noreferrer" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <h3>NEDU Dashboard</h3>
+              <p class="project-desc">Application desktop JavaFX avec API métier. Architecture MVC stricte, tableaux de bord analytiques et gestion fine des rôles.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">JavaFX</span>
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Project 4 -->
+          <article class="project-card magic-hover">
+            <div class="project-image" style="background: linear-gradient(45deg, #e11d48, #fb7185);">
+              <span class="mockup-icon">✨</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/UX_UI" target="_blank" rel="noreferrer" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <h3>Prolink UI</h3>
+              <p class="project-desc">Conception UI/UX d'une plateforme de networking B2B. Design system complet sur Figma et intégration Tailwind CSS pixel perfect.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">Figma</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">UX/UI</span>
+              </div>
+            </div>
+          </article>
 
-        </ul>
-        <p>
-          <strong>Stack :</strong> MongoDB, NestJS, Socket.io.
-        </p>
-        <a class="btn" href="https://github.com/mayss111/chat-tasks-api" target="_blank" rel="noreferrer">
-          Voir le code sur GitHub
-        </a>
-      </article>
-    </section>
+        </div>
+      </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Pour toute opportunité ou question, n’hésite pas à me contacter :</p>
-      <ul>
-        <li>Email : <a href="mailto:mayssjaballi@gmail.com" target="_blank" rel="noreferrer" class="emaiL">mayssjaballi@gmail.com</a></li>
-        <li>GitHub : <a href="https://github.com/mayss111" target="_blank" rel="noreferrer">mayss111</a></li>
-        <li>LinkedIn : <a href="https://www.linkedin.com/in/mayss-jaballi-08145028a/" target="_blank" rel="noreferrer">mayss jaballi</a></li>
-      </ul>
-    </section>
+      <section id="contact" class="section fade-in-up">
+        <div class="glass-panel contact-panel">
+          <div class="contact-content">
+            <div class="section-label">04 // CONTACT</div>
+            <h2 class="contact-title">Prêt à collaborer ?</h2>
+            <p class="contact-desc">
+              Que ce soit pour une opportunité d'alternance, de stage, ou un projet innovant, ma boîte de réception est toujours ouverte. Je vous répondrai dans les plus brefs délais !
+            </p>
+            <a href="mailto:mayssjaballi@gmail.com" class="btn btn-primary btn-large">
+              Dire Bonjour 👋
+            </a>
+            
+            <div class="social-links">
+              <a href="https://github.com/mayss111" target="_blank" rel="noreferrer" class="social-icon" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/mayss-jaballi-08145028a/" target="_blank" rel="noreferrer" class="social-icon" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="mailto:mayssjaballi@gmail.com" class="social-icon" aria-label="Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
- 
- 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 · Mayss Jaballi</p>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>Mayss<span class="dot">.</span></h3>
+        <p>Développeuse Full-Stack</p>
+      </div>
+      <p class="copyright">© 2026 Conçu et développé par Mayss Jaballi.</p>
     </div>
   </footer>
+
+  <script>
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("scroll-progress").style.width = scrolled + "%";
+    });
+
+    // Theme Management
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    root.setAttribute('data-theme', savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Add staggered delay to children if it's a grid
+          const children = entry.target.querySelectorAll('.project-card, .skill-card');
+          if(children.length > 0) {
+            children.forEach((child, index) => {
+              child.style.transitionDelay = `${index * 0.1}s`;
+              child.classList.add('visible');
+            });
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .fade-in-scale').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Mouse glow effect for magic-hover cards
+    document.querySelectorAll('.magic-hover').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  </script>
 </body>
 </html>
