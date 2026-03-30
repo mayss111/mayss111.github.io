@@ -123,6 +123,7 @@ a {
 .gradient-text {
   background: var(--gradient-main);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -869,6 +870,9 @@ a {
    Responsive Logic
    ========================================================================== */
 @media (max-width: 1024px) {
+  .nav {
+    gap: 1.2rem;
+  }
   .hero-grid, .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -892,16 +896,33 @@ a {
 
 @media (max-width: 768px) {
   .site-header {
-    width: 100%;
-    top: 0;
-    border-radius: 0;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    top: auto;
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .header-content {
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .brand {
+    display: none;
   }
   
   .nav {
-    display: none; /* In a real app, implement a hamburger menu here */
+    gap: 0.8rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
   }
   
   .hero-title {
@@ -914,10 +935,12 @@ a {
   
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .footer-content {
     flex-direction: column;
     text-align: center;
+    padding-bottom: 5rem;
   }
 }
