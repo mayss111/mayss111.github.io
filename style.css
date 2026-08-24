@@ -87,6 +87,27 @@ html {
   scroll-padding-top: 100px;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--bg-app);
@@ -789,10 +810,64 @@ a {
 /* ==========================================================================
    Projects Section
    ========================================================================== */
+.section-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: -0.5rem;
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--trans-fast);
+}
+
+.filter-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-glow);
+  transform: translateY(-2px);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.filter-btn.is-active {
+  background: var(--gradient-main);
+  border-color: transparent;
+  color: var(--text-inverse);
+  box-shadow: 0 8px 20px -8px var(--accent-glow);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2.5rem;
+}
+
+.project-card.is-hidden {
+  display: none;
+}
+
+.projects-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
 }
 
 .project-card {
@@ -851,6 +926,12 @@ a {
   font-size: 0.85rem;
   color: var(--accent-primary);
   font-weight: 600;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .icon-link {

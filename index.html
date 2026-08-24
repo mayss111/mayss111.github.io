@@ -6,7 +6,7 @@
   <title>Portfolio - Mayss Jaballi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Portfolio de Mayss Jaballi, étudiante en ingénierie informatique spécialisée en développement web full-stack." />
+    content="Portfolio de Mayss Jaballi, étudiante en ingénierie informatique spécialisée en développement web full-stack, mobile Flutter et intelligence artificielle." />
 
   <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,13 +71,18 @@
 
           <div class="hero-stats">
             <div class="stat-item">
-              <span class="stat-num">4+</span>
-              <span class="stat-label">Projets Majeurs</span>
+              <span class="stat-num">10+</span>
+              <span class="stat-label">Projets Publics</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
               <span class="stat-num">Full</span>
               <span class="stat-label">Stack</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">Web·Mobile·IA</span>
+              <span class="stat-label">Domaines</span>
             </div>
           </div>
         </div>
@@ -90,9 +95,9 @@
             </div>
             <div class="floating-badge badge-1">Angular</div>
             <div class="floating-badge badge-2">NestJS</div>
-            <div class="floating-badge badge-3">UI/UX</div>
+            <div class="floating-badge badge-3">Flutter</div>
             <div class="floating-badge badge-4">Python</div>
-            <div class="floating-badge badge-5">react</div>
+            <div class="floating-badge badge-5">React</div>
 
 
           </div>
@@ -112,10 +117,12 @@
                 full-stack. J’aime concevoir des applications propres, testables et bien structurées.
               </p>
               <p>
-                J'utilise <strong>React</strong> pour le développement d'interfaces modernes et performantes, ainsi que
+                J'utilise <strong>React</strong> et <strong>Angular</strong> pour le développement d'interfaces
+                modernes et performantes, <strong>NestJS</strong> et <strong>Java</strong> côté backend, ainsi que
                 <strong>Python</strong> pour des solutions d'Intelligence Artificielle et de <strong>Machine Learning
-                  (ML)</strong>. Toujours à l'affût des dernières technologies, je cherche à mettre en pratique mes
-                compétences à travers des projets concrets.
+                  (ML)</strong>. Je conçois aussi des applications et jeux mobiles avec <strong>Flutter</strong>.
+                Toujours à l'affût des dernières technologies, je cherche à mettre en pratique mes compétences à
+                travers des projets concrets, dont plusieurs déployés en production.
               </p>
             </div>
             <div class="about-visual">
@@ -157,10 +164,10 @@
                 state management optimisé.</p>
               <div class="tags-container">
                 <span class="tag">Angular</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">RxJS</span>
-                <span class="tag">Tailwind CSS</span>
                 <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Tailwind CSS</span>
               </div>
             </div>
           </div>
@@ -170,13 +177,13 @@
               <div class="card-icon gradient-icon">⚙️</div>
               <h3>Robust Backend</h3>
               <p class="skill-desc">Développement d'APIs performantes, architecture modulaire, middlewares, sécurité
-                (JWT) et WebSockets.</p>
+                (JWT), WebSockets et services temps réel.</p>
               <div class="tags-container">
                 <span class="tag">NestJS</span>
                 <span class="tag">Node.js</span>
                 <span class="tag">Java</span>
                 <span class="tag">Spring Boot</span>
-                <span class="tag">REST API</span>
+                <span class="tag">Supabase</span>
               </div>
             </div>
           </div>
@@ -211,6 +218,19 @@
               </div>
             </div>
           </div>
+
+          <div class="glass-card skill-card magic-hover">
+            <div class="glow-wrap">
+              <div class="card-icon gradient-icon">📱</div>
+              <h3>Mobile</h3>
+              <p class="skill-desc">Applications mobiles cross-platform, jeux 2D et intégration d'APIs temps réel.</p>
+              <div class="tags-container">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Flame</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -218,21 +238,37 @@
         <div class="section-header">
           <div class="section-label"></div>
           <h2>Projets Récents</h2>
+          <p class="section-sub">Une sélection par domaine — le reste est sur mon GitHub.</p>
+        </div>
+
+        <div class="project-filters" role="tablist" aria-label="Filtrer les projets par catégorie">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+          <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web &amp; Full-Stack</button>
+          <button class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">Mobile &amp; Jeux</button>
+          <button class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Systèmes &amp; Design</button>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card magic-hover">
-            <div class="project-image" style="background: linear-gradient(45deg, #0284c7, #38bdf8);">
-              <!-- Placeholder for project image -->
-              <span class="mockup-icon">📚</span>
+          <!-- Mobile 1 -->
+          <article class="project-card magic-hover" data-cat="mobile">
+            <div class="project-image" style="background: linear-gradient(45deg, #d946ef, #22d3ee);">
+              <span class="mockup-icon">🕹️</span>
             </div>
             <div class="project-content">
               <div class="project-meta">
                 <span class="project-year">2026</span>
                 <div class="project-links">
-                  <a href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer"
-                    class="icon-link">
+                  <a href="https://neon-survivor-lac.vercel.app" target="_blank" rel="noreferrer" class="icon-link"
+                    aria-label="Demo en ligne">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/mayss111/Neon-Survivor" target="_blank" rel="noreferrer"
+                    class="icon-link" aria-label="Code source">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                       stroke-linecap="round" stroke-linejoin="round">
                       <path
@@ -242,19 +278,130 @@
                   </a>
                 </div>
               </div>
-              <h3>Library Manager</h3>
-              <p class="project-desc">Plateforme CRM de gestion de bibliothèque centralisant les opérations quotidiennes
-                avec des tableaux de bord interactifs.</p>
+              <h3>Neon Survivor</h3>
+              <p class="project-desc">Jeu arcade React + Vite jouable en ligne, avec mode multijoueur temps réel
+                (Supabase Realtime), chat en partie et classement en direct.</p>
               <div class="tags-container small">
-                <span class="tag highlight">Angular</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">RxJS</span>
+                <span class="tag highlight">React</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Supabase</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card magic-hover">
+          <!-- Mobile 2 -->
+          <article class="project-card magic-hover" data-cat="mobile">
+            <div class="project-image" style="background: linear-gradient(45deg, #f59e0b, #ef4444);">
+              <span class="mockup-icon">⚔️</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2026</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/Arena-Spark/releases/latest" target="_blank" rel="noreferrer"
+                    class="icon-link" aria-label="Telecharger l'APK">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/mayss111/Arena-Spark" target="_blank" rel="noreferrer" class="icon-link"
+                    aria-label="Code source">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3>Spark Arena</h3>
+              <p class="project-desc">Battle royale mobile coloré et adapté aux enfants, développé avec Flutter et le
+                moteur de jeu Flame. Disponible en APK Android.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Flame</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Web 1 -->
+          <article class="project-card magic-hover" data-cat="web">
+            <div class="project-image" style="background: linear-gradient(45deg, #0284c7, #38bdf8);">
+              <span class="mockup-icon">🎓</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2026</span>
+                <div class="project-links">
+                  <a href="https://edu-play-nu.vercel.app" target="_blank" rel="noreferrer" class="icon-link"
+                    aria-label="Demo en ligne">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/mayss111/EduPlay" target="_blank" rel="noreferrer" class="icon-link"
+                    aria-label="Code source">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3>EduPlay</h3>
+              <p class="project-desc">Plateforme web d'apprentissage ludique déployée en production, avec backend
+                Postgres/Supabase pour la gestion des contenus et des utilisateurs.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">React</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Systems 1 -->
+          <article class="project-card magic-hover" data-cat="systems">
+            <div class="project-image" style="background: linear-gradient(45deg, #059669, #34d399);">
+              <span class="mockup-icon">📊</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2026</span>
+                <div class="project-links">
+                  <a href="https://github.com/mayss111/NeoEdu" target="_blank" rel="noreferrer" class="icon-link"
+                    aria-label="Code source">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3>NEoDU Dashboard</h3>
+              <p class="project-desc">Application desktop JavaFX avec API métier. Architecture MVC stricte, tableaux de
+                bord analytiques et gestion fine des rôles.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">JavaFX</span>
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Web 2 -->
+          <article class="project-card magic-hover" data-cat="web">
             <div class="project-image" style="background: linear-gradient(45deg, #7c3aed, #c084fc);">
               <span class="mockup-icon">💬</span>
             </div>
@@ -284,16 +431,16 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card magic-hover">
-            <div class="project-image" style="background: linear-gradient(45deg, #059669, #34d399);">
-              <span class="mockup-icon">📊</span>
+          <!-- Web 3 -->
+          <article class="project-card magic-hover" data-cat="web">
+            <div class="project-image" style="background: linear-gradient(45deg, #0284c7, #38bdf8);">
+              <span class="mockup-icon">📚</span>
             </div>
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-year">2025</span>
+                <span class="project-year">2026</span>
                 <div class="project-links">
-                  <a href="https://github.com/mayss111/projet-finale" target="_blank" rel="noreferrer"
+                  <a href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer"
                     class="icon-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -304,19 +451,19 @@
                   </a>
                 </div>
               </div>
-              <h3>NEoDU Dashboard</h3>
-              <p class="project-desc">Application desktop JavaFX avec API métier. Architecture MVC stricte, tableaux de
-                bord analytiques et gestion fine des rôles.</p>
+              <h3>Library Manager</h3>
+              <p class="project-desc">Plateforme CRM de gestion de bibliothèque centralisant les opérations quotidiennes
+                avec des tableaux de bord interactifs.</p>
               <div class="tags-container small">
-                <span class="tag highlight">JavaFX</span>
-                <span class="tag">Java</span>
-                <span class="tag">MySQL</span>
+                <span class="tag highlight">Angular</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">RxJS</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project-card magic-hover">
+          <!-- Systems 2 -->
+          <article class="project-card magic-hover" data-cat="systems">
             <div class="project-image" style="background: linear-gradient(45deg, #e11d48, #fb7185);">
               <span class="mockup-icon">✨</span>
             </div>
@@ -345,8 +492,8 @@
             </div>
           </article>
 
-          <!-- Project 5 -->
-          <article class="project-card magic-hover">
+          <!-- Mobile 3 -->
+          <article class="project-card magic-hover" data-cat="mobile">
             <div class="project-image" style="background: linear-gradient(45deg, #0ea5e9, #38bdf8);">
               <span class="mockup-icon">📱</span>
             </div>
@@ -376,6 +523,54 @@
             </div>
           </article>
 
+          <!-- Systems 3 -->
+          <article class="project-card magic-hover" data-cat="systems">
+            <div class="project-image" style="background: linear-gradient(45deg, #334155, #64748b);">
+              <span class="mockup-icon">🎯</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">2026</span>
+                <div class="project-links">
+                  <a href="https://mayss111.github.io/number_guessing_game/" target="_blank" rel="noreferrer"
+                    class="icon-link" aria-label="Demo en ligne">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/mayss111/number_guessing_game" target="_blank" rel="noreferrer"
+                    class="icon-link" aria-label="Code source">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3>Number Guessing Game</h3>
+              <p class="project-desc">Jeu en ligne de commande avec niveaux de difficulté, logique de jeu testée et
+                déployée sur GitHub Pages.</p>
+              <div class="tags-container small">
+                <span class="tag highlight">Python</span>
+                <span class="tag">Algorithmes</span>
+                <span class="tag">CLI</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-cta">
+          <a href="https://github.com/mayss111?tab=repositories" target="_blank" rel="noreferrer"
+            class="btn btn-secondary">
+            Voir tous mes projets sur GitHub
+            <span class="arrow">→</span>
+          </a>
         </div>
       </section>
 
@@ -484,6 +679,26 @@
 
     document.querySelectorAll('.fade-in-up, .fade-in-scale').forEach(element => {
       observer.observe(element);
+    });
+
+    // Project filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        filterBtns.forEach(b => {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+
+        projectCards.forEach(card => {
+          const match = filter === 'all' || card.dataset.cat === filter;
+          card.classList.toggle('is-hidden', !match);
+        });
+      });
     });
 
     // Mouse glow effect for magic-hover cards
