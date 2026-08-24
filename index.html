@@ -98,8 +98,6 @@
             <div class="floating-badge badge-3">Flutter</div>
             <div class="floating-badge badge-4">Python</div>
             <div class="floating-badge badge-5">React</div>
-
-
           </div>
         </div>
       </div>
@@ -238,17 +236,51 @@
         <div class="section-header">
           <div class="section-label"></div>
           <h2>Projets Récents</h2>
-          <p class="section-sub">Une sélection par domaine — le reste est sur mon GitHub.</p>
+          <p class="section-sub">Une sélection de mes projets les plus aboutis — le reste est sur mon GitHub.</p>
         </div>
 
         <div class="project-filters" role="tablist" aria-label="Filtrer les projets par catégorie">
           <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Tous</button>
           <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web &amp; Full-Stack</button>
           <button class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">Mobile &amp; Jeux</button>
-          <button class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Systèmes &amp; Design</button>
+          <button class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Systèmes &amp; IA</button>
         </div>
 
         <div class="projects-grid">
+          <!-- Featured: ByteBattle -->
+          <article class="project-card project-card-featured magic-hover" data-cat="systems">
+            <div class="project-image" style="background: linear-gradient(45deg, #4f46e5, #06b6d4);">
+              <span class="mockup-icon">⚔️</span>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year">Projet d'équipe · 2026</span>
+                <div class="project-links">
+                  <a href="https://github.com/saladin-scs/Esprit-PI-4Twin1-2026-ByteBattle" target="_blank"
+                    rel="noreferrer" class="icon-link" aria-label="Code source">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <h3>ByteBattle <span class="featured-tag">Projet phare</span></h3>
+              <p class="project-desc">Plateforme d'apprentissage à la programmation compétitive : architecture
+                microservices (NestJS + service IA Python), notebooks de Machine Learning pour l'évaluation
+                automatique, CI/CD Jenkins et déploiement Docker/Kubernetes. Contributrice principale (63 commits).</p>
+              <div class="tags-container small">
+                <span class="tag highlight">NestJS</span>
+                <span class="tag">Python / ML</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Jenkins CI/CD</span>
+                <span class="tag">Kubernetes</span>
+              </div>
+            </div>
+          </article>
+
           <!-- Mobile 1 -->
           <article class="project-card magic-hover" data-cat="mobile">
             <div class="project-image" style="background: linear-gradient(45deg, #d946ef, #22d3ee);">
@@ -427,138 +459,6 @@
                 <span class="tag highlight">NestJS</span>
                 <span class="tag">Socket.io</span>
                 <span class="tag">MongoDB</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Web 3 -->
-          <article class="project-card magic-hover" data-cat="web">
-            <div class="project-image" style="background: linear-gradient(45deg, #0284c7, #38bdf8);">
-              <span class="mockup-icon">📚</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-year">2026</span>
-                <div class="project-links">
-                  <a href="https://github.com/mayss111/library-manager" target="_blank" rel="noreferrer"
-                    class="icon-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                      </path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3>Library Manager</h3>
-              <p class="project-desc">Plateforme CRM de gestion de bibliothèque centralisant les opérations quotidiennes
-                avec des tableaux de bord interactifs.</p>
-              <div class="tags-container small">
-                <span class="tag highlight">Angular</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">RxJS</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Systems 2 -->
-          <article class="project-card magic-hover" data-cat="systems">
-            <div class="project-image" style="background: linear-gradient(45deg, #e11d48, #fb7185);">
-              <span class="mockup-icon">✨</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-year">2025</span>
-                <div class="project-links">
-                  <a href="https://github.com/mayss111/UX_UI" target="_blank" rel="noreferrer" class="icon-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                      </path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3>Prolink UI</h3>
-              <p class="project-desc">Conception UI/UX d'une plateforme de networking B2B. Design system complet sur
-                Figma et intégration Tailwind CSS pixel perfect.</p>
-              <div class="tags-container small">
-                <span class="tag highlight">Figma</span>
-                <span class="tag">Tailwind</span>
-                <span class="tag">UX/UI</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Mobile 3 -->
-          <article class="project-card magic-hover" data-cat="mobile">
-            <div class="project-image" style="background: linear-gradient(45deg, #0ea5e9, #38bdf8);">
-              <span class="mockup-icon">📱</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-year">Stage</span>
-                <div class="project-links">
-                  <a href="https://github.com/ahmedcharef/flutter-news" target="_blank" rel="noreferrer"
-                    class="icon-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                      </path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3>Flutter News App</h3>
-              <p class="project-desc">Application mobile d'actualités développée lors de mon stage. Interface fluide et
-                intégration d'API pour un flux d'informations en temps réel.</p>
-              <div class="tags-container small">
-                <span class="tag highlight">Flutter</span>
-                <span class="tag">Dart</span>
-                <span class="tag">Mobile</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Systems 3 -->
-          <article class="project-card magic-hover" data-cat="systems">
-            <div class="project-image" style="background: linear-gradient(45deg, #334155, #64748b);">
-              <span class="mockup-icon">🎯</span>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-year">2026</span>
-                <div class="project-links">
-                  <a href="https://mayss111.github.io/number_guessing_game/" target="_blank" rel="noreferrer"
-                    class="icon-link" aria-label="Demo en ligne">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                  <a href="https://github.com/mayss111/number_guessing_game" target="_blank" rel="noreferrer"
-                    class="icon-link" aria-label="Code source">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                      </path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <h3>Number Guessing Game</h3>
-              <p class="project-desc">Jeu en ligne de commande avec niveaux de difficulté, logique de jeu testée et
-                déployée sur GitHub Pages.</p>
-              <div class="tags-container small">
-                <span class="tag highlight">Python</span>
-                <span class="tag">Algorithmes</span>
-                <span class="tag">CLI</span>
               </div>
             </div>
           </article>
