@@ -30,6 +30,13 @@
   --border-light: rgba(255, 255, 255, 0.08);
   --border-glow: rgba(56, 189, 248, 0.4);
 
+  /* Subtle surfaces (chips, secondary buttons…) */
+  --surface-subtle: rgba(255, 255, 255, 0.05);
+  --surface-subtle-hover: rgba(255, 255, 255, 0.1);
+  --footer-bg: rgba(0, 0, 0, 0.3);
+  --btn-primary-shadow: rgba(255, 255, 255, 0.3);
+  --cursor-glow: rgba(255, 255, 255, 0.06);
+
   /* FX & Geometry */
   --blur-md: blur(12px);
   --blur-lg: blur(24px);
@@ -68,6 +75,12 @@
   --border-light: rgba(15, 23, 42, 0.08);
   --border-glow: rgba(14, 165, 233, 0.4);
 
+  --surface-subtle: rgba(15, 23, 42, 0.04);
+  --surface-subtle-hover: rgba(15, 23, 42, 0.08);
+  --footer-bg: rgba(255, 255, 255, 0.6);
+  --btn-primary-shadow: rgba(15, 23, 42, 0.35);
+  --cursor-glow: rgba(14, 165, 233, 0.08);
+
   --gradient-text: linear-gradient(to right, #0f172a, #475569);
 }
 
@@ -85,6 +98,26 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 a:focus-visible,
@@ -92,6 +125,24 @@ button:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1100;
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+  background: var(--text-main);
+  color: var(--text-inverse);
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform var(--trans-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -115,6 +166,10 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -174,8 +229,10 @@ a {
   height: 3px;
   background: var(--gradient-main);
   z-index: 1000;
-  width: 0%;
-  transition: width 0.1s ease-out;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
 }
 
 /* ==========================================================================
@@ -184,9 +241,11 @@ a {
 .bg-orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(100px);
+  /* The radial gradient is already soft: no costly filter: blur() needed */
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.35;
+  pointer-events: none;
+  will-change: transform;
   animation: orb-float 20s infinite alternate linear;
 }
 
@@ -284,8 +343,8 @@ a {
   right: 0;
   bottom: 0;
   border-radius: inherit;
-  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(255, 255, 255, 0.06),
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--cursor-glow),
       transparent 40%);
   z-index: 3;
   opacity: 0;
@@ -300,24 +359,39 @@ a {
 /* ==========================================================================
    Animations
    ========================================================================== */
-.fade-in-up {
+/* Hidden states only apply when JS is running (the .js class is set in <head>),
+   so the content stays visible without JavaScript. */
+.js .fade-in-up {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 
-.fade-in-scale {
+.js .fade-in-scale {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fade-in-up.visible,
-.fade-in-scale.visible,
-.visible {
+.js .fade-in-up.visible,
+.js .fade-in-scale.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: none;
+}
+
+/* Staggered card entrance. An animation (not a transition) with fill-mode
+   "backwards" leaves hover transitions untouched once it has finished. */
+.js .visible .skill-card,
+.js .visible .project-card {
+  animation: card-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
 }
 
 /* ==========================================================================
@@ -347,12 +421,11 @@ a {
   padding: 0 2rem;
 }
 
-.brand h1 {
+.brand-name {
+  font-family: var(--font-heading);
   font-size: 1.4rem;
-}
-
-.brand .subtitle {
-  display: none;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .nav {
@@ -368,12 +441,20 @@ a {
   transition: var(--trans-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.is-active {
   color: var(--text-main);
 }
 
+.nav-link.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
 .theme-toggle {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   border: 1px solid var(--border-light);
   color: var(--text-main);
   width: 40px;
@@ -414,6 +495,7 @@ a {
    ========================================================================== */
 .hero-section {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: 100px;
@@ -434,7 +516,7 @@ a {
   display: inline-block;
   padding: 0.4rem 1rem;
   border-radius: 99px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   border: 1px solid var(--border-light);
   font-size: 0.9rem;
   font-weight: 500;
@@ -488,12 +570,12 @@ a {
 .btn-primary {
   background: var(--text-main);
   color: var(--text-inverse);
-  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px -10px var(--btn-primary-shadow);
 }
 
 .btn-primary:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 35px -10px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px -8px var(--btn-primary-shadow);
 }
 
 .btn-primary .arrow {
@@ -506,15 +588,25 @@ a {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   color: var(--text-main);
   border: 1px solid var(--border-light);
   backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-subtle-hover);
   transform: translateY(-4px);
+}
+
+.btn-secondary .arrow {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover .arrow {
+  transform: translateX(5px);
 }
 
 .hero-stats {
@@ -576,10 +668,9 @@ a {
   box-shadow: 0 20px 50px rgba(56, 189, 248, 0.3);
 }
 
-.profile-placeholder {
+.profile-photo {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
   object-position: center top;
 }
@@ -598,48 +689,58 @@ a {
   position: absolute;
   padding: 0.8rem 1.5rem;
   background: var(--bg-surface);
-  backdrop-filter: var(--blur-lg);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
   border: 1px solid var(--border-light);
   border-radius: 99px;
   font-weight: 600;
+  white-space: nowrap;
   color: var(--text-main);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   animation: float 6s ease-in-out infinite;
   z-index: 10;
 }
 
+/* Three badges on each side, kept clear of the face */
 .badge-1 {
-  top: 10%;
-  left: -10%;
+  top: 6%;
+  left: -12%;
   animation-delay: 0s;
 }
 
-.badge-2 {
-  bottom: 20%;
-  right: -5%;
-  animation-delay: -2s;
-  border-color: var(--accent-secondary);
-}
-
-.badge-3 {
-  bottom: 0%;
-  left: 15%;
-  animation-delay: -4s;
+.badge-4 {
+  top: 44%;
+  left: -20%;
+  animation-delay: -3s;
   border-color: var(--accent-primary);
 }
 
-.badge-4 {
-  bottom: 30%;
-  left: 10%;
+.badge-3 {
+  bottom: 2%;
+  left: 0;
   animation-delay: -4s;
   border-color: var(--accent-primary);
 }
 
 .badge-5 {
-  bottom: 50%;
-  right: -15%;
-  animation-delay: 1s;
+  top: 16%;
+  right: -16%;
+  animation-delay: -1s;
   border-color: var(--accent-primary);
+}
+
+.badge-2 {
+  top: 58%;
+  right: -18%;
+  animation-delay: -2s;
+  border-color: var(--accent-secondary);
+}
+
+.badge-6 {
+  bottom: -4%;
+  right: 4%;
+  animation-delay: -5s;
+  border-color: var(--accent-secondary);
 }
 
 @keyframes float {
@@ -681,6 +782,11 @@ a {
 .about-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
 }
 
 .about-text p {
@@ -745,7 +851,7 @@ a {
    ========================================================================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -796,7 +902,7 @@ a {
   font-weight: 600;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   color: var(--text-muted);
   border: 1px solid var(--border-light);
   transition: var(--trans-fast);
@@ -809,7 +915,7 @@ a {
 }
 
 .skill-card:hover .tag {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-subtle-hover);
   color: var(--text-main);
 }
 
@@ -819,7 +925,6 @@ a {
 .section-sub {
   color: var(--text-muted);
   font-size: 1rem;
-  margin-top: -0.5rem;
 }
 
 .project-filters {
@@ -836,7 +941,7 @@ a {
   padding: 0.6rem 1.25rem;
   border-radius: 999px;
   border: 1px solid var(--border-light);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-subtle);
   color: var(--text-muted);
   cursor: pointer;
   transition: var(--trans-fast);
@@ -862,7 +967,7 @@ a {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   gap: 2.5rem;
 }
 
@@ -888,7 +993,7 @@ a {
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--border-glow);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
@@ -965,12 +1070,19 @@ a {
 }
 
 .icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   color: var(--text-muted);
   transition: var(--trans-fast);
 }
 
 .icon-link:hover {
   color: var(--text-main);
+  background: var(--surface-subtle);
   transform: scale(1.1);
 }
 
@@ -1040,7 +1152,7 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-subtle);
   border: 1px solid var(--border-light);
   color: var(--text-muted);
   transition: var(--trans-bounce);
@@ -1059,7 +1171,7 @@ a {
 .site-footer {
   border-top: 1px solid var(--border-light);
   padding: 3rem 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--footer-bg);
 }
 
 .footer-content {
@@ -1070,8 +1182,11 @@ a {
   gap: 1.5rem;
 }
 
-.footer-brand h3 {
+.footer-brand .footer-name {
+  font-family: var(--font-heading);
   font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
 .footer-brand p {
@@ -1108,6 +1223,11 @@ a {
     height: 400px;
   }
 
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-actions {
     justify-content: center;
   }
@@ -1124,6 +1244,11 @@ a {
 }
 
 @media (max-width: 768px) {
+  /* The header moves to the bottom of the screen */
+  html {
+    scroll-padding-top: 1.5rem;
+  }
+
   .site-header {
     top: auto;
     bottom: 1rem;
@@ -1148,11 +1273,12 @@ a {
 
   .nav-link {
     font-size: 0.85rem;
+    padding: 0.5rem 0.25rem;
   }
 
   .theme-toggle {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
   }
 
   .section {
@@ -1185,17 +1311,26 @@ a {
     font-size: 0.85rem;
   }
 
+  /* Keep 4 badges inside the viewport on small screens */
+  .badge-4,
+  .badge-5 {
+    display: none;
+  }
+
   .badge-1 {
-    left: 0;
+    left: -4%;
   }
 
   .badge-2 {
-    right: 0;
+    right: -6%;
   }
 
-  .badge-5 {
+  .badge-3 {
+    left: 0;
+  }
+
+  .badge-6 {
     right: 0;
-    display: none;
   }
 
   .glass-panel {
